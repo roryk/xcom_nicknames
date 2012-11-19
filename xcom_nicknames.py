@@ -9,15 +9,14 @@ COUNTRIES = ["Am", "Rs", "Ch", "In", "Af", "Mx", "Ab",
 
 
 def name2string(gender, nickname, country):
-    firstname = "m_arr%s%sFirstNames=%s\n" % (country, gender.upper(),
-                                              nickname)
-    lastname = "m_arr%sLastNames= \n" % (country)
+    firstname = "m_arr%s%sFirstNames=\n" % (country, gender.upper())
+    lastname = "m_arr%sLastNames=%s\n" % (country, nickname.capitalize())
     return (firstname, lastname)
 
 
 def nickname2string(gender, nickname, role, number):
     nstring = "m_arr%s%sNicknames[%s]=%s\n" % (gender.upper(), role,
-                                             str(number), nickname)
+                                             str(number), nickname.capitalize)
     return nstring
 
 
@@ -57,8 +56,9 @@ def main(in_file, to_generate):
         exit(1)
 
 if __name__ == "__main__":
-    usage = """usage: python xcom_nicknames.py nicknames_file nickname/first
-    adding nickname will output nicknames. first will output as first names
+    usage = """usage: python xcom_nicknames.py nicknames_file nickname/last
+    adding nickname will output nicknames. last will output as last names.
+    gender is not respected for either ATM.
     """
     if len(sys.argv) < 3:
         print usage
