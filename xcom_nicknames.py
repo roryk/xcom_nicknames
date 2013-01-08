@@ -49,18 +49,18 @@ def main(in_file, to_generate):
     if to_generate == "nickname":
         nicknames = read_nicknames(in_file)
         output_nicknames(nicknames)
-    elif to_generate == "first":
+    elif to_generate == "last":
         output_names(in_file)
     else:
         print usage
         exit(1)
 
 if __name__ == "__main__":
-    usage = """usage: python xcom_nicknames.py nicknames_file nickname/first
-    adding nickname will output nicknames. first will output as first names.
+    usage = """usage: python xcom_nicknames.py nicknames_file nickname/last
+    adding nickname will output nicknames. last will output as last names.
     gender is not respected for either.
     if you want to have the names show up like on Beaglerush's videos use
-    'first'
+    'last'
     """
     if len(sys.argv) < 3:
         print usage
