@@ -11,11 +11,11 @@ COUNTRIES = ["Am", "Rs", "Ch", "In", "Af", "Mx", "Ab",
 def name2string(gender, nickname, country, firstname=False):
     if firstname:
         firstname = "m_arr%s%sFirstNames=%s\n" % (
-	    country, gender.upper(), nickname.capitalize())
+	    country, gender.upper(), nickname)
         lastname = "m_arr%sLastNames=\n" % (country)
     else:
         firstname = "m_arr%s%sFirstNames=\n" % (country, gender.upper())
-        lastname = "m_arr%sLastNames=%s\n" % (country, nickname.capitalize())
+        lastname = "m_arr%sLastNames=%s\n" % (country, nickname)
     return (firstname, lastname)
 
 
@@ -35,7 +35,7 @@ def name2string_firstname(gender, nickname, country):
 # nickname supplied.
 def name2string_nickname(gender, nickname, role, number):
     nstring = "m_arr%s%sNicknames[%s]=%s\n" % (
-	gender.upper(), role, str(number), nickname.capitalize())
+	gender.upper(), role, str(number), nickname)
     return nstring
 
 
